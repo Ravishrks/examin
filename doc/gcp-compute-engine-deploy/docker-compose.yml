@@ -1,0 +1,15 @@
+version: '3.4'
+    
+services:
+  certbot:
+    image: certbot/dns-google
+    volumes:
+      - ../../nginx/certbot/letsencrypt:/etc/letsencrypt
+      - ../../nginx/certbot/var/lib/letsencrypt:/var/lib/letsencrypt
+      - ./dns-api-secret-key.json:/etc/ssl-dns-plugin/secret.json
+    ports:
+      - "80:80" 
+      # Using dry-run for staging... for testing purpose... if everything works fine, just remove --dry-run flag  
+      # replace yourmail@mail.com and domain.com with your mail and domain  
+    command: certonly --dry-run  --email yourmail@mail.com --agree-tos --staging --dns-google --dns-google-credentials /etc/ssl-dns-plugin/secret.json --dns-google-propagation-seconds 120  -d yourdomain.com 
+      
