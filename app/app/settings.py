@@ -37,6 +37,26 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+
+    # Dependancies apps
+
+    'ckeditor',
+    'ckeditor_uploader', 
+
+
+    # The following apps are required:
+    'django.contrib.sites',
+
+    # Custom app
+
+    'main.apps.MainConfig',
+    'answer.apps.AnswerConfig',
+    'question.apps.QuestionConfig',
+    'exam.apps.ExamConfig',
+    'result.apps.ResultConfig',
+    'user.apps.UserConfig',
+
+
 ]
 
 MIDDLEWARE = [
@@ -111,12 +131,17 @@ AUTH_PASSWORD_VALIDATORS = [
 ]
 
 
+SITE_ID=1
+
+
+
+
 # Internationalization
 # https://docs.djangoproject.com/en/3.0/topics/i18n/
 
 LANGUAGE_CODE = 'en-us'
 
-TIME_ZONE = 'UTC'
+TIME_ZONE = 'Asia/Kolkata'
 
 USE_I18N = True
 
@@ -129,3 +154,46 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/3.0/howto/static-files/
 
 STATIC_URL = '/static/'
+STATIC_ROOT = os.path.join(BASE_DIR,'/usr/share/nginx/static/')
+
+# Manageing media files
+
+MEDIA_URL ='/media/'
+MEDIA_ROOT = os.path.join(BASE_DIR, '/usr/share/nginx/media/')
+
+# Required for using widget with file upload
+
+CKEDITOR_UPLOAD_PATH = "uploads/"
+CKEDITOR_IMAGE_BACKEND = "pillow"
+CKEDITOR_ALLOW_NONIMAGE_FILES = False
+
+
+# Manageing login 
+
+LOGIN_REDIRECT_URL = '/'
+LOGIN_URL = '/user/login/'
+
+# Changeing default value of file size
+
+FILE_UPLOAD_MAX_MEMORY_SIZE = 6221440
+FILE_UPLOAD_PERMISSIONS = 0o644
+
+FILE_UPLOAD_TEMP_DIR = os.path.join(BASE_DIR, 'media/temp_dir/')
+
+# Default layout to use with "crispy_forms"
+CRISPY_TEMPLATE_PACK = 'materialize_css_forms'
+
+if DEBUG:
+    STATIC_ROOT = os.path.join(BASE_DIR,'.././nginx/django/static/')
+    MEDIA_ROOT = os.path.join(BASE_DIR, '.././nginx/django/media/')
+
+# Ckeditor toolbox custom setup
+CKEDITOR_CONFIGS = {
+    'default': {
+        'toolbar': 'full',
+
+    },
+}
+
+CKEDITOR_FORCE_JPEG_COMPRESSION = True
+CKEDITOR_RESTRICT_BY_USER= True
