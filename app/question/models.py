@@ -7,7 +7,6 @@ from django.shortcuts import render, redirect
 import datetime
 from django.utils import timezone
 from django.utils.text import slugify
-from answer.models import Answer
 
 # Store questions, with type of questions, so as to process question based on type. Type will help to process question while generating results.
 
@@ -34,9 +33,8 @@ class Question(models.Model):
     weitage = models.IntegerField(blank=True, null=True, default=0)
     created_date = models.DateTimeField(
         blank=True, null=True, auto_now_add=True)
-    answer = models.ForeignKey(Answer, on_delete=models.CASCADE, null=True)    
 
     def __str__(self):
-        return f'{self.tite}'
+        return f'{self.title}'
 
 
