@@ -63,11 +63,11 @@ class DatabaseChoice(models.Model):
 class Answer(models.Model):
 
     question = models.OneToOneField(Question, on_delete=models.CASCADE)
-    single_choice = models.ForeignKey(SingleChoice, on_delete=models.CASCADE, null=True)
-    multiple_choice = models.ForeignKey(MultipleChoice, on_delete=models.CASCADE, null=True)
-    integer_choice = models.ForeignKey(IntegerChoice, on_delete=models.CASCADE, null=True)
-    programme_choice = models.ForeignKey(ProgrammeChoice, on_delete=models.CASCADE, null=True)
-    database_choice = models.ForeignKey(DatabaseChoice, on_delete=models.CASCADE, null=True)
+    single_choice = models.ForeignKey(SingleChoice, on_delete=models.CASCADE, null=True, blank=True)
+    multiple_choice = models.ForeignKey(MultipleChoice, on_delete=models.CASCADE, null=True, blank=True)
+    integer_choice = models.ForeignKey(IntegerChoice, on_delete=models.CASCADE, null=True, blank=True)
+    programme_choice = models.ForeignKey(ProgrammeChoice, on_delete=models.CASCADE, null=True, blank=True)
+    database_choice = models.ForeignKey(DatabaseChoice, on_delete=models.CASCADE, null=True, blank=True)
 
     def __str__(self):
         return f'{self.question.title}'
