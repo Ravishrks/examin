@@ -24,14 +24,26 @@ let appTemplates = {
         templates: ['base.html', 'index.html']
 
     },
-    users: {
-        templates: ['login.html', 'logout.html']
+    user: {
+        templates: ['login.html', 'logout.html', 'error.html', 'register.html', 'success.html', 'dashboard.html', 'base.html']
 
     },
-    article: {
-        templates: ['article.html']
+    // answer: {
+    //     templates: ['article.html']
 
-    },
+    // },
+    // exam: {
+    //     templates: ['article.html']
+
+    // },
+    // question: {
+    //     templates: ['article.html']
+
+    // },
+    // result: {
+    //     templates: ['article.html']
+
+    // },
 }
 
 // copy html template to respective template location
@@ -145,6 +157,6 @@ function live() {
 }
 
 // export tasks
-exports.default = series(cssDev, jsDev, live);
+exports.default = series(syncTemplate, cssDev, jsDev, live);
 exports.prod = series(cssDev, jsDev, syncTemplate, css, js);
 exports.sync = syncTemplate;

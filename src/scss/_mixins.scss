@@ -1,0 +1,27 @@
+
+// mixins media query
+
+@mixin iphone {
+    @media (min-width: #{$scr_xs}) and (max-width: #{$scr_sm}) {
+      @content;
+    }
+  }
+  
+  @mixin ipad {
+    @media (min-width: #{$scr_sm}) and (max-width: #{$scr_md}) {
+      @content;
+    }
+  }
+  
+  @mixin macbook {
+    @media (min-width: #{$scr_md}) and (max-width: #{$scr_lg}) {
+      @content;
+    }
+  }
+  
+  @mixin imac {
+    @media (min-width: #{$scr_lg}) and (max-width: #{$scr_xl}) {
+      @content;
+    }
+  }
+  

@@ -1,0 +1,95 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  {% load static %}
+
+  {% block meta-description %} {% endblock meta-description %}
+
+  {% block meta %} {% endblock meta %}
+
+  <!-- Required meta tags -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+  <!-- CSS -->
+  <link type="text/css" rel="stylesheet" href="{% static 'main/css/tailwind.css' %}" media="screen,projection" />
+  <link type="text/css" rel="stylesheet" href="{% static 'main/css/style.css' %}" media="screen,projection" />
+  <!-- <link type="text/css" rel="stylesheet" href="{% static 'main/bundle.min.css' %}" media="screen,projection" /> -->
+
+  <title>{% block title %} Title {% endblock title%}</title>
+
+  {% block head %} {% endblock head%}
+  {% block head-style %}{% endblock head-style %}
+
+</head>
+
+<body>
+  <!-- JS waypoint and jquery -->
+
+  {% block head-js %}{% endblock head-js %}
+
+  {%block nav%}
+
+<div class="container"><br>
+    <nav class="navbar">
+        <div class="navbar__brand">
+          <a href="/" class="navbar__brand-logo">Exambit</a>
+        </div>
+  
+        <div class="navbar__toggle">
+          <span class="navbar__toggle__button">
+            <img class="navbar__toggle__button__icon" alt="nav" src="{% static 'main/assests/menu-icon.svg' %}" alt="">
+          </span>
+        </div>
+  
+        <div class="navbar__nav">
+          <ul class="navbar__nav__menu">
+  
+            {% if request.user.is_authenticated%}
+            <li class="navbar__nav__menu__item"><a class="navbar__nav__menu__item-link" href="#">Admin</a></li>
+
+            <li class="navbar__nav__menu__item"><a class="navbar__nav__menu__item-link"
+                href="{% url 'user:logout' %}">Sign Out</a></li>
+  
+            {% else %}
+            <li class="navbar__nav__menu__item"><a class="navbar__nav__menu__item-link"
+              href="#">Contact Us</a></li>
+            <li class="navbar__nav__menu__item"><a class="navbar__nav__menu__item-link"
+              href="{% url 'user:register' %}">Join Us</a></li>
+            <li class="navbar__nav__menu__item"><a class="navbar__nav__menu__item-link" href="{% url 'user:login' %}">Sign
+                In</a></li>
+            
+            {% endif %}
+          </ul>
+        </div>
+      </nav>
+</div>
+
+
+
+  {% endblock nav%}
+
+  {% block scroller %}
+
+  {% endblock scroller%}
+
+  {% block header %}{% endblock header%}
+
+  {% block container%}{% endblock container%}
+
+
+  <!-- JS -->
+
+  
+
+  <script type="text/javascript" src="{% static 'main/js/all.js' %}"></script>
+  <!-- <script type="text/javascript" src="{% static 'main/bundle.min.js' %}"></script> -->
+
+</body>
+
+{% block footer%}<br><br>
+
+{% endblock footer%}
+
+</html>

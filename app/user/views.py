@@ -4,8 +4,6 @@ from django.contrib.auth.models import User
 from .form import RegisterAccount
 from django.contrib.auth.decorators import login_required
 from django.utils.decorators import method_decorator
-from article.models import Bookmark
-from author.models import Author
 from django.http import HttpResponse
 
  

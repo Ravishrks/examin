@@ -1,6 +1,6 @@
 from django.urls import path
 from . import views as user_view
-from user.views import  Register, terms, cookie_policy, data_policy
+from user.views import  Register
 from django.contrib.auth import views as auth_views
 
 

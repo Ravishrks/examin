@@ -1,0 +1,40 @@
+{
+  "name": "exambit",
+  "version": "1.0.0",
+  "description": "take exam",
+  "main": "gulpfile.js",
+  "directories": {
+    "doc": "doc"
+  },
+  "scripts": {
+    "tailwing:dev": "postcss ./src/css/tailwind.css -o ./app/main/static/main/css/tailwind.css",
+    "tailwind:prod": "postcss ./src/css/tailwind.css -o ./app/main/static/main/css/tailwind.css && gulp prod",
+    "dj:sync": "python3 app/manage.py makemigrations && python3 app/manage.py migrate",
+    "dj": "python3 app/manage.py runserver 0.0.0.0:8000",
+    "pip:fr": "pip freeze > requirements.txt"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Ravishrks/examin.git"
+  },
+  "author": "Ravish Kumar",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Ravishrks/examin/issues"
+  },
+  "homepage": "https://github.com/Ravishrks/examin#readme",
+  "devDependencies": {
+    "@fullhuman/postcss-purgecss": "^2.2.0",
+    "alpinejs": "^2.3.5",
+    "autoprefixer": "^9.8.0",
+    "browser-sync": "^2.26.7",
+    "gulp": "^4.0.2",
+    "gulp-clean-css": "^4.2.0",
+    "gulp-cli": "^2.3.0",
+    "gulp-concat": "^2.6.1",
+    "gulp-sass": "^4.0.2",
+    "gulp-terser": "^1.2.0",
+    "postcss-cli": "^7.1.1",
+    "tailwindcss": "^1.4.6"
+  }
+}
