@@ -1,0 +1,16 @@
+.navbar-user{
+
+    display: flex;
+
+    &__right{
+        display: flex;
+
+        &__brand{}
+        &__menu{}
+    }
+
+    &__left{
+
+        &__menu{}
+    }
+}

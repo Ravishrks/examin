@@ -1,5 +1,5 @@
 {% extends "user/base.html" %}
-
+ 
 {% block title %} Dashboard {% endblock title%}
 {% load static %}
 
@@ -7,16 +7,25 @@
 
 <div class="container">
     <div class="dashboard">
-        <div class="dashboard__item dashboard__item-profile">
-            <div class="dashboard__item__temp">
+        <div class="dashboard__item ">
+            <div class="dashboard__item__profile">
+                <img src="{% static 'main/assets/hero-exm.jpg' %}" alt="">
+                <button>Edit Profile</button>
             </div>
         </div>
-        <div class="dashboard__item dashboard__item-test"><div class="dashboard__item__temp">
-        </div></div>
-        <div class="dashboard__item dashboard__item-mock_test"><div class="dashboard__item__temp">
-        </div></div>
+
+        <div class="dashboard__item ">
+            <div class="dashboard__item__start-test">
+                <p>Once test is available, start exam button will be enabled.</p>
+                <button>Start test</button>
+            </div>
+        </div>
+
+        <div class="dashboard__item">
+            <div class="dashboard__item__payment"></div>
+        </div>
     </div>
 </div>
 
 
-{% endblock container%}
+{% endblock container%} 

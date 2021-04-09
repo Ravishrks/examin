@@ -7,7 +7,7 @@
     "doc": "doc"
   },
   "scripts": {
-    "tailwing:dev": "postcss ./src/css/tailwind.css -o ./app/main/static/main/css/tailwind.css",
+    "tailwind:dev": "postcss ./src/css/tailwind.css -o ./app/main/static/main/css/tailwind.css",
     "tailwind:prod": "postcss ./src/css/tailwind.css -o ./app/main/static/main/css/tailwind.css && gulp prod",
     "dj:sync": "python3 app/manage.py makemigrations && python3 app/manage.py migrate",
     "dj": "python3 app/manage.py runserver 0.0.0.0:8000",

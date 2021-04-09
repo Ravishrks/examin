@@ -1,0 +1,55 @@
+.dashboard{
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr auto;
+    gap: 2rem;
+    margin-top: 1rem;
+
+    &__item{
+        
+        width: 100%;
+        height: 50vh;
+
+        &__profile{
+            // background-color: rgb(247, 247, 247);
+            height: 100%;
+            padding: 1.8rem;
+       
+
+            &>img{
+                height: auto;
+                border: 1px solid rgb(224, 224, 224);
+                width: 100%;
+                margin-bottom: 1rem;
+                
+            }
+
+        
+
+            &>button{
+                border: 1px solid rgb(202, 202, 202);
+                font-size: 1.2rem;
+                padding: 1rem;
+                width: 100%;
+                color: gray;
+            }
+            
+        }
+
+        &__start-test{
+            border: 1px solid rgb(228, 228, 228);
+            margin-top: 2rem;
+            padding: 2rem;
+
+            &>button{
+                margin-top: 1rem;
+                border: 1px solid rgb(202, 202, 202);
+                font-size: 2.2rem;
+                padding: 1rem;
+                width: 100%;
+                color: rgb(8, 241, 86);
+            }
+        }
+
+       
+    }
+}

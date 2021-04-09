@@ -32,3 +32,18 @@ class Register(View):
 
 def dashboard(request):
     return render(request, 'user/dashboard.html')
+
+def profile(request):
+    return render(request, 'user/profile.html')
+
+def payment(request):
+    return render(request, 'user/payment.html')
+
+def notifications(request):
+    return render(request, 'user/notifications.html')
+
+def error(request):
+    return render(request, 'user/error.html')
+
+def success(request):
+    return render(request, 'user/success.html')

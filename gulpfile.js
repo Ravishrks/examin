@@ -24,8 +24,16 @@ let appTemplates = {
         templates: ['base.html', 'index.html']
 
     },
+    result: {
+        templates: ['result.html']
+
+    },
+    exam: {
+        templates: ['instructions.html', 'question.html', 'section.html']
+
+    },
     user: {
-        templates: ['login.html', 'logout.html', 'error.html', 'register.html', 'success.html', 'dashboard.html', 'base.html']
+        templates: ['login.html', 'logout.html', 'error.html', 'register.html', 'success.html', 'dashboard.html', 'base.html', 'feedback.html', 'notification.html', 'payment.html', 'profile.html']
 
     },
     // answer: {
