@@ -170,7 +170,7 @@ CKEDITOR_ALLOW_NONIMAGE_FILES = False
 
 # Manageing login 
 
-LOGIN_REDIRECT_URL = '/'
+LOGIN_REDIRECT_URL = '/user/dashboard'
 LOGIN_URL = '/user/login/'
 
 # Changeing default value of file size

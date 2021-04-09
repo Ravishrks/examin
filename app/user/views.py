@@ -28,3 +28,7 @@ class Register(View):
     def get(self, request):
         form = RegisterAccount()
         return render(request, self.template_register, {'form': form})
+
+
+def dashboard(request):
+    return render(request, 'user/dashboard.html')

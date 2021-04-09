@@ -129,3 +129,18 @@ button {
             font-size: 1.6rem; }
             .hero__content-left__content-call_to_action-btn > a {
               color: white; }
+
+.navbar-user {
+  display: flex; }
+  .navbar-user__right {
+    display: flex; }
+
+.dashboard {
+  display: flex; }
+  .dashboard__item {
+    margin: 1rem;
+    width: 100%; }
+    .dashboard__item__temp {
+      height: 50vh;
+      margin: 1rem;
+      background-color: aqua; }
