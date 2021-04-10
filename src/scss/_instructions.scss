@@ -1,0 +1,102 @@
+ .exam-frame{
+     display: grid;
+     grid-template-columns: 4fr 8fr;
+     gap: 3rem;
+
+     &__left{
+         display: flex;
+         justify-content: center;
+         align-items: center;
+
+      
+         
+     }
+
+     &__right{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        background-color: rgb(230, 250, 255);
+     }
+ }
+
+
+ .instructions{
+    
+  
+
+    &-welcome{
+        
+
+        &__name{
+            display: block;
+            color: rgb(151, 150, 150);
+            font-size: 1.8rem;
+        }
+        &__statement{
+            max-width: 31ch;
+            font-size: 2.4rem;
+            color: rgb(80, 80, 80);
+            
+            
+        }
+        &__metadata{
+            margin-top: 2rem;
+            display: flex;
+            &__test-duration{
+                margin-top: 2rem;
+                &>span{
+                    display: block;
+                    font-size: 2rem;
+                    color: rgb(148, 148, 148);
+                    margin-bottom: 1rem;
+                    
+                }
+            }
+            &__question-count{
+                margin: 2rem;
+                &>span{
+                    display: block;
+                    font-size: 2rem;
+                    color: rgb(148, 148, 148);
+                    margin-bottom: 1rem;
+                }
+            }
+        }
+    }
+
+    // contant start
+
+    &-content{
+        &__heading{
+            &>span{
+                display: block;
+                font-size: 3rem;
+                margin: 1rem;
+            }    
+        }
+
+        &__instructions{
+            margin-left: 3rem;
+            max-width: 120ch;
+            &>p{
+                color: gray;
+            }
+        }
+
+        &__start-test-btn{
+            margin-left: 3rem;
+            font-size: 2rem;
+
+            &>button{
+                padding: 0.8rem;
+                border: 1px solid rgb(227, 252, 227);
+                width: 33%;
+                margin-top: 1rem;
+                color: rgb(255, 255, 255);
+                background-color: rgb(47, 255, 127);
+            }
+        }
+    }
+ }

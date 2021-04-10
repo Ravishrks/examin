@@ -1,0 +1,89 @@
+{% extends "user/base.html" %}
+ 
+{% block title %} Instructions {% endblock title%}
+{% load static %}
+
+{%block nav%}
+
+<link href="https://unpkg.com/tailwindcss@^1.0/dist/tailwind.min.css" rel="stylesheet">
+
+<div class="container">
+
+    <nav class="flex items-center justify-between flex-wrap bg-white p-6">
+  <div class="flex items-center flex-shrink-0  mr-6">
+    <span class="font-semibold text-5xl tracking-tight ">Exambit</span>
+  </div>
+  <div class="block lg:hidden">
+    <button class="flex items-center px-3 py-2 border rounded text-teal-200 border-teal-400 hover:text-white hover:border-white">
+      <svg class="fill-current h-3 w-3" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><title>Menu</title><path d="M0 3h20v2H0V3zm0 6h20v2H0V9zm0 6h20v2H0v-2z"/></svg>
+    </button>
+  </div>
+  <div class="w-full block flex-grow lg:flex lg:items-center lg:w-auto ">
+    <div class="text-2xl lg:flex-grow">
+    
+    </div>
+ 
+      <a href="#" class="mr-4 inline-block text-2xl px-4 py-2 leading-none border rounded text-green border-green hover:border-transparent hover:text-teal-500 hover:bg-white mt-4 lg:mt-0 text-grey-600">Start test</a>
+    </div>
+  </div>
+</nav>
+
+</div>
+
+{%endblock nav%}
+
+{% block container%}
+
+<div class="container">
+    <div class="exam-frame">
+        <div class="exam-frame__left">
+            {% block exam-frame__left%}
+                <div class="instructions-welcome">
+                    <span class="instructions-welcome__name">Hey, John Doe</span>
+                    <div class="instructions-welcome__statement">It’s time to conquer the test and open the endless possibilities.
+                         We wishes you best of luck. 
+                    </div>
+
+                    <div class="instructions-welcome__metadata">
+                        <div class="instructions-welcome__metadata__test-duration">
+                            <span>Test durations</span>
+                            <p>120 mins</p>
+                        </div>
+                        <div class="instructions-welcome__metadata__question-count">
+                            <span>No of questions</span>
+                            <p>60 questions</p>
+                        </div>
+                    </div>
+                </div>
+
+            {% endblock exam-frame__left%}
+        </div>
+        <div class="exam-frame__right">
+            {% block exam-frame__right%}
+
+            <div class="instructions-content">
+                <div class="instructions-content__heading">
+                    <span>Instructions</span>
+                </div>
+                <div class="instructions-content__instructions">
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ex tempore quia, exercitationem nemo natus delectus laborum quibusdam provident error? Architecto.</p><br>
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Suscipit assumenda aut quod quibusdam itaque corporis laborum, eius porro dignissimos earum consectetur ex ea id totam modi libero dolores.</p>
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ex tempore quia, exercitationem nemo natus delectus laborum quibusdam provident error? Architecto.</p><br>
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Suscipit assumenda aut quod quibusdam itaque corporis laborum, eius porro dignissimos earum consectetur ex ea id totam modi libero dolores.</p>
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ex tempore quia, exercitationem nemo natus delectus laborum quibusdam provident error? Architecto.</p><br>
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Suscipit assumenda aut quod quibusdam itaque corporis laborum, eius porro dignissimos earum consectetur ex ea id totam modi libero dolores.</p>
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ex tempore quia, exercitationem nemo natus delectus laborum quibusdam provident error? Architecto.</p><br>
+                </div>
+                <div class="instructions-content__start-test-btn">
+                    <button>Start now</button>
+                </div>
+
+            </div>
+
+            {% endblock exam-frame__right%}
+        </div>
+    </div>
+</div>
+
+
+{% endblock container%} 

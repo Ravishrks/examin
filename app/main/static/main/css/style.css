@@ -256,3 +256,68 @@ button {
     .profile__info__action > button:hover {
       background-color: red;
       color: white; }
+
+.exam-frame {
+  display: grid;
+  grid-template-columns: 4fr 8fr;
+  gap: 3rem; }
+  .exam-frame__left {
+    display: flex;
+    justify-content: center;
+    align-items: center; }
+  .exam-frame__right {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: #e6faff; }
+
+.instructions-welcome__name {
+  display: block;
+  color: #979696;
+  font-size: 1.8rem; }
+
+.instructions-welcome__statement {
+  max-width: 31ch;
+  font-size: 2.4rem;
+  color: #505050; }
+
+.instructions-welcome__metadata {
+  margin-top: 2rem;
+  display: flex; }
+  .instructions-welcome__metadata__test-duration {
+    margin-top: 2rem; }
+    .instructions-welcome__metadata__test-duration > span {
+      display: block;
+      font-size: 2rem;
+      color: #949494;
+      margin-bottom: 1rem; }
+  .instructions-welcome__metadata__question-count {
+    margin: 2rem; }
+    .instructions-welcome__metadata__question-count > span {
+      display: block;
+      font-size: 2rem;
+      color: #949494;
+      margin-bottom: 1rem; }
+
+.instructions-content__heading > span {
+  display: block;
+  font-size: 3rem;
+  margin: 1rem; }
+
+.instructions-content__instructions {
+  margin-left: 3rem;
+  max-width: 120ch; }
+  .instructions-content__instructions > p {
+    color: gray; }
+
+.instructions-content__start-test-btn {
+  margin-left: 3rem;
+  font-size: 2rem; }
+  .instructions-content__start-test-btn > button {
+    padding: 0.8rem;
+    border: 1px solid #e3fce3;
+    width: 33%;
+    margin-top: 1rem;
+    color: white;
+    background-color: #2fff7f; }
