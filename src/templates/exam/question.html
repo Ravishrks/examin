@@ -1,0 +1,130 @@
+{% extends "user/base.html" %}
+ 
+{% block title %} Instructions {% endblock title%}
+{% load static %}
+
+{%block nav%}
+
+<link href="https://unpkg.com/tailwindcss@^1.0/dist/tailwind.min.css" rel="stylesheet">
+
+<div class="container">
+
+    <nav class="flex items-center justify-between flex-wrap bg-white p-6">
+  <div class="flex items-center flex-shrink-0  mr-6">
+    <span class="font-semibold text-5xl tracking-tight ">Exambit</span>
+  </div>
+  <div class="block lg:hidden">
+    <button class="flex items-center px-3 py-2 border rounded text-teal-200 border-teal-400 hover:text-white hover:border-white">
+      <svg class="fill-current h-3 w-3" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><title>Menu</title><path d="M0 3h20v2H0V3zm0 6h20v2H0V9zm0 6h20v2H0v-2z"/></svg>
+    </button>
+  </div>
+  <div class="w-full block flex-grow lg:flex lg:items-center lg:w-auto ">
+    <div class="text-2xl lg:flex-grow">
+    
+    </div>
+ 
+      <a href="#" class="mr-4 inline-block text-2xl px-4 py-2 leading-none border rounded text-green border-green hover:border-transparent hover:text-teal-500 hover:bg-white mt-4 lg:mt-0 text-grey-600">Start test</a>
+    </div>
+  </div>
+</nav>
+
+</div>
+
+{%endblock nav%}
+
+
+{% block header %}
+
+<div class="container">
+    <div class="question-index">
+        <a href="">Instructions</a>
+        <a href="">1</a>
+        <a href="">2</a>
+        <a href="">3</a>
+        <a href="">4</a>
+        <a href="">5</a>
+        <a href="">6</a>
+        <a href="">7</a>
+        <a href="">8</a>
+        <a href="">9</a>
+        <a href="">10</a>
+        <a href="">11</a>
+        <a href="">12</a>
+        <a href="">13</a>
+        <a href="">14</a>
+        <a href="">15</a>
+        <a href="">16</a>
+        <a href="">1</a>
+        <a href="">2</a>
+        <a href="">3</a>
+        <a href="">4</a>
+        <a href="">5</a>
+        <a href="">6</a>
+        <a href="">7</a>
+        <a href="">8</a>
+        <a href="">9</a>
+        <a href="">10</a>
+        <a href="">11</a>
+        <a href="">12</a>
+        <a href="">13</a>
+        <a href="">14</a>
+        <a href="">15</a>
+        <a href="">16</a>
+        <a href="">1</a>
+        <a href="">2</a>
+        <a href="">3</a>
+        <a href="">4</a>
+        <a href="">5</a>
+        <a href="">6</a>
+        <a href="">7</a>
+        <a href="">8</a>
+        <a href="">9</a>
+        <a href="">10</a>
+        <a href="">11</a>
+        <a href="">12</a>
+        <a href="">13</a>
+        <a href="">14</a>
+        <a href="">15</a>
+        <a href="">16</a>
+        
+    </div>
+</div>
+
+{% endblock header%}
+
+{% block container%}
+
+<div class="container">
+    <div class="question-frame">
+        <div class="question-frame__left">
+            {% block question-frame__left%}
+                <div class="question-area">
+                    <div class="question-area__section-tag">SECTION: A </div>
+                    <div class="question-area__content">
+                        <div class="question-area__content__header"><span>1. Parallel Processing</span></div><hr><br>
+                        <div class="question-area__content__details">
+                            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolore quae earum fuga. Minima saepe laborum laboriosam, autem, distinctio incidunt consequuntur cum odit explicabo unde magnam nisi. Voluptate, molestiae consequuntur est porro placeat sint. Ipsam culpa repudiandae ad maiores.</p><br>
+                            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Qui, voluptas quae dolorem tenetur sit nemo recusandae rerum culpa eum vitae.</p>
+                            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolore quae earum fuga. Minima saepe laborum laboriosam, autem, distinctio incidunt consequuntur cum odit explicabo unde magnam nisi. Voluptate, molestiae consequuntur est porro placeat sint. Ipsam culpa repudiandae ad maiores.</p><br>
+                            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Qui, voluptas quae dolorem tenetur sit nemo recusandae rerum culpa eum vitae.</p>
+                        </div>
+                    </div>
+                </div>
+
+            {% endblock question-frame__left%}
+        </div>
+        <div class="question-frame__right">
+            {% block question-frame__right%}
+
+            <div class="choices-area">
+              
+
+            </div>
+
+            {% endblock question-frame__right%}
+        </div>
+    </div>
+</div>
+
+
+{% endblock container%} 

@@ -321,3 +321,35 @@ button {
     margin-top: 1rem;
     color: white;
     background-color: #2fff7f; }
+
+.question-frame {
+  display: grid;
+  grid-template-columns: 4fr 8fr;
+  gap: 3rem; }
+  .question-frame__right {
+    height: 100vh;
+    background-color: #e6faff; }
+
+.question-area__section-tag {
+  font-size: 1.4rem;
+  color: gray;
+  margin-bottom: 1rem; }
+
+.question-area__content__header {
+  font-size: 2rem;
+  margin-bottom: 1rem;
+  color: black; }
+
+.question-area__content__details > p {
+  color: #292929; }
+
+.question-index {
+  margin: 2rem 0rem 2rem 0rem;
+  display: flex;
+  overflow-x: auto; }
+  .question-index > a {
+    display: inline-block;
+    border: 1px solid #cfcfcf;
+    padding: 1rem;
+    font-size: 1.2rem;
+    color: gray; }
