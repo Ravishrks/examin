@@ -51,14 +51,13 @@
           <ul class="navbar__nav__menu">
   
             {% if request.user.is_authenticated%}
-            <li class="navbar__nav__menu__item"><a class="navbar__nav__menu__item-link" href="#">Admin</a></li>
 
             <li class="navbar__nav__menu__item"><a class="navbar__nav__menu__item-link"
                 href="{% url 'user:logout' %}">Sign Out</a></li>
   
             {% else %}
             <li class="navbar__nav__menu__item"><a class="navbar__nav__menu__item-link"
-              href="#">Contact Us</a></li>
+              href="{% url 'main:contact' %}">Contact Us</a></li>
             <li class="navbar__nav__menu__item"><a class="navbar__nav__menu__item-link"
               href="{% url 'user:register' %}">Join Us</a></li>
             <li class="navbar__nav__menu__item"><a class="navbar__nav__menu__item-link" href="{% url 'user:login' %}">Sign

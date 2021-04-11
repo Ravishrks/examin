@@ -15,3 +15,7 @@ def index(request):
 
 def robots(request):
     return render(request, 'main/robots.txt' , content_type='text/plain')
+
+
+def contact(request):
+    return render(request, 'main/contact.html' )

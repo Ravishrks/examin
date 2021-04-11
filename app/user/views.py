@@ -39,6 +39,9 @@ def profile(request):
 def payment(request):
     return render(request, 'user/payment.html')
 
+def feedback(request):
+    return render(request, 'user/feedback.html')
+
 def notifications(request):
     return render(request, 'user/notifications.html')
 
