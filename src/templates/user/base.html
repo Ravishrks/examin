@@ -10,7 +10,7 @@
 
     <nav class="flex items-center justify-between flex-wrap bg-white p-6">
   <div class="flex items-center flex-shrink-0  mr-6">
-    <span class="font-semibold text-5xl tracking-tight ">Exambit</span>
+    <span class="font-semibold text-5xl tracking-tight "><a href="{% url 'user:dashboard' %}">Exambit</a></span>
   </div>
   <div class="block lg:hidden">
     <button class="flex items-center px-3 py-2 border rounded text-teal-200 border-teal-400 hover:text-white hover:border-white">
@@ -19,25 +19,25 @@
   </div>
   <div class="w-full block flex-grow lg:flex lg:items-center lg:w-auto">
     <div class="text-2xl lg:flex-grow">
-      <a href="#responsive-header" class="block mt-4 lg:inline-block lg:mt-0 text-grey-600 hover:text-white mr-4">
+      <a href="{% url 'user:dashboard' %}" class="block mt-4 lg:inline-block lg:mt-0 text-grey-600 hover:text-gray-600 mr-4">
         Dashboard
       </a>
-      <a href="#responsive-header" class="block mt-4 lg:inline-block lg:mt-0 text-grey-600 hover:text-white mr-4">
+      <a href="{% url 'user:profile' %}" class="block mt-4 lg:inline-block lg:mt-0 text-grey-600 hover:text-gray-600 mr-4">
         Profile
       </a>
-      <a href="#responsive-header" class="block mt-4 lg:inline-block lg:mt-0 text-grey-600 hover:text-white mr-4">
+      <a href="{% url 'user:payment' %}" class="block mt-4 lg:inline-block lg:mt-0 text-grey-600 hover:text-gray-600 mr-4">
         Payments
       </a>
-      <a href="#responsive-header" class="block mt-4 lg:inline-block lg:mt-0 text-grey-600 hover:text-white mr-4">
+      <a href="{% url 'result:result' %}" class="block mt-4 lg:inline-block lg:mt-0 text-grey-600 hover:text-gray-600 mr-4">
         Results
       </a>
-      <a href="#responsive-header" class="block mt-4 lg:inline-block lg:mt-0 text-grey-600 hover:text-white">
+      <a href="{% url 'user:feedback' %}" class="block mt-4 lg:inline-block lg:mt-0 text-grey-600 hover:text-gray-600">
         Feedback
       </a>
     
     </div>
     <div>
-      <a href="#" class="inline-block text-2xl px-4 py-2 leading-none border rounded text-grey-600 border-grey hover:border-transparent hover:text-teal-500 hover:bg-white mt-4 lg:mt-0 text-grey-600">Sign Out</a>
+      <a href="{% url 'user:logout' %}" class="inline-block text-2xl px-4 py-2 leading-none border rounded text-grey-600 border-grey hover:border-transparent hover:text-teal-500 hover:bg-white mt-4 lg:mt-0 text-grey-600">Sign Out</a>
     </div>
   </div>
 </nav>

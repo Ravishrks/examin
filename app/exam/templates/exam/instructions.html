@@ -11,7 +11,7 @@
 
     <nav class="flex items-center justify-between flex-wrap bg-white p-6">
   <div class="flex items-center flex-shrink-0  mr-6">
-    <span class="font-semibold text-5xl tracking-tight ">Exambit</span>
+    <span class="font-semibold text-5xl tracking-tight "><a href="{% url 'user:dashboard' %}">Exambit</a></span>
   </div>
   <div class="block lg:hidden">
     <button class="flex items-center px-3 py-2 border rounded text-teal-200 border-teal-400 hover:text-white hover:border-white">
@@ -23,7 +23,7 @@
     
     </div>
  
-      <a href="#" class="mr-4 inline-block text-2xl px-4 py-2 leading-none border rounded text-green border-green hover:border-transparent hover:text-teal-500 hover:bg-white mt-4 lg:mt-0 text-grey-600">Start test</a>
+      <a href="{% url 'exam:question' %}" class="mr-4 inline-block text-2xl px-4 py-2 leading-none border rounded text-green border-green hover:border-transparent hover:text-teal-500 hover:bg-white mt-4 lg:mt-0 text-grey-600">Start test</a>
     </div>
   </div>
 </nav>
@@ -75,7 +75,7 @@
                     <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ex tempore quia, exercitationem nemo natus delectus laborum quibusdam provident error? Architecto.</p><br>
                 </div>
                 <div class="instructions-content__start-test-btn">
-                    <button>Start now</button>
+                    <button><a href="{% url 'exam:question' %}">Start now</a></button>
                 </div>
 
             </div>

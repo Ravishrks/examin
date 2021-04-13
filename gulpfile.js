@@ -21,7 +21,7 @@ const myProject = djangoSetup['rootLocation'] + djangoSetup['name']
 // all app name and template name will be auto extracted
 let appTemplates = {
     main: {
-        templates: ['base.html', 'index.html']
+        templates: ['base.html', 'index.html', 'contact.html']
 
     },
     result: {
