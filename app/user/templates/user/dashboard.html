@@ -10,7 +10,7 @@
         <div class="dashboard__item ">
             <div class="dashboard__item__profile">
                 <img src="{% static 'main/assets/hero-exm.jpg' %}" alt="">
-                <button>Edit Profile</button>
+                <button><a href="{% url 'user:profile-update' request.user.pk %}">Edit Profile</a></button>
             </div>
         </div>
 

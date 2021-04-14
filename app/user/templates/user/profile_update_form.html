@@ -1,0 +1,33 @@
+{% extends "user/base.html" %}
+ 
+{% block title %} Profile {% endblock title%}
+{% load static %}
+
+{% block container%}
+
+<link rel="stylesheet" href="//fonts.googleapis.com/css?family=Roboto:300,300italic,700,700italic">
+<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.css">
+<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/milligram/1.3.0/milligram.css">
+
+<style>
+    .form {
+        width: auto;
+        /* display: flex;
+        align-items: center;
+        justify-content: center; */
+    }
+
+    ul{
+        list-style: none;
+    }
+</style>
+
+<div class="container form">
+    <form method="post">{% csrf_token %}
+        {{ form.as_p }}
+        <input type="submit" value="Update">
+    </form>
+</div>
+
+
+{% endblock container%} 

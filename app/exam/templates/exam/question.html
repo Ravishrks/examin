@@ -37,8 +37,8 @@
 
 <div class="container">
     <div class="question-index">
-        <a href="">Instructions</a>
-        <a href="">All</a>
+        <a href="{% url 'exam:instructions' %}">Instructions</a>
+        <a href="{% url 'exam:all-question' %}">All</a>
         <a href="">1</a>
         <a href="">2</a>
         <a href="">3</a>
@@ -90,7 +90,15 @@
             {% block question-frame__right%}
 
             <div class="choices-area">
-              <div class="choices-area__content"></div>
+              <div class="choices-area__content">
+                  <div class="choices-area__content__editor-info">
+                    <span>Language: <b>JavaScript</b></span>
+                  </div>
+                  <div class="choices-area__content__editor" id="editor"></div>
+                  <div class="choices-area__content__editor-save">
+                    <button>Save response</button>
+                  </div>
+              </div>
 
             </div>
 
@@ -98,6 +106,7 @@
         </div>
     </div>  
 </div>
+
 
 
 {% endblock container%} 

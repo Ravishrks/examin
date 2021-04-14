@@ -67,7 +67,7 @@
              </div>
          </div>
          <div class="profile__info__action">
-             <button>Edit Profile</button>
+             <button><a href="{% url 'user:profile-update' request.user.pk %}">Edit Profile</a></button>
          </div>
    
      </div>

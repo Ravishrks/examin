@@ -5,6 +5,8 @@ from .form import RegisterAccount
 from django.contrib.auth.decorators import login_required
 from django.utils.decorators import method_decorator
 from django.http import HttpResponse
+from django.views.generic.edit import UpdateView
+from user.models import Profile
 
  
 
@@ -35,6 +37,12 @@ def dashboard(request):
 
 def profile(request):
     return render(request, 'user/profile.html')
+
+
+class ProfileUpdateView(UpdateView):
+    model = Profile
+    fields = ['avatar', 'college', 'course', 'session_start', 'session_end', 'phone', 'address', 'aadhar', 'birthday', 'gender']
+    template_name = 'user/profile_update_form.html'
 
 def payment(request):
     return render(request, 'user/payment.html')

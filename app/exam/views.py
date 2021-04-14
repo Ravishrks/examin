@@ -24,6 +24,9 @@ def question(request):
 
     return render(request, 'exam/question.html', context)
 
+def all_questions(request):
+    return render(request, 'exam/all-questions.html')
+
 def section(request):
     return render(request, 'exam/section.html')
 

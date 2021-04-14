@@ -16,5 +16,19 @@ let toggleNav = function () {
 
 }
 
+if (navToggleBtn[0]){
+    navToggleBtn[0].addEventListener('click', toggleNav)
 
-navToggleBtn[0].addEventListener('click', toggleNav)
+}
+
+// codemirror
+
+let codeEditorMirrorDiv= document.querySelector('#editor');
+
+let myCodeMirror = CodeMirror(codeEditorMirrorDiv, {
+  value: "function myScript(){return 100;}\n",
+  mode:  "javascript",
+  lineNumbers: true,
+  
+});
+
