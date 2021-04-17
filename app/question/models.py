@@ -35,6 +35,6 @@ class Question(models.Model):
         blank=True, null=True, auto_now_add=True)
 
     def __str__(self):
-        return f'{self.title}'
+        return f'{self.pk} | {self.title}'
 
 

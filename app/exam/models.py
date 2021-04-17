@@ -27,7 +27,7 @@ class QuestionSection(models.Model):
     question = models.ManyToManyField(Question)
 
     def __str__(self):
-        return f'{self.title}'
+        return f'{self.pk} | {self.title}'
 
 
 
@@ -42,7 +42,7 @@ class QuestionSet(models.Model):
     question_section = models.ManyToManyField(QuestionSection)
 
     def __str__(self):
-        return f'{self.title}'    
+        return f'{self.pk} | {self.title}'    
      
 
 
@@ -60,6 +60,6 @@ class Exam(models.Model):
     scheduled = models.DateTimeField(blank=True, null=True)
 
     def __str__(self):
-        return f'{self.title}'
+        return f'{self.pk} | {self.title}'
 
 

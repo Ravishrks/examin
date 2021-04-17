@@ -23,9 +23,9 @@ if (navToggleBtn[0]){
 
 // codemirror
 
-let codeEditorMirrorDiv= document.querySelector('#editor');
+let myEditorJs= document.querySelector('#editor');
 
-let myCodeMirror = CodeMirror(codeEditorMirrorDiv, {
+let myCodeMirror = CodeMirror(myEditorJs, {
   value: "function myScript(){return 100;}\n",
   mode:  "javascript",
   lineNumbers: true,

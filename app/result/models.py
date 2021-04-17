@@ -2,9 +2,25 @@ from django.db import models
 from user.models import Profile
 from exam.models import Exam
 from question.models import Question
+from ckeditor.fields import RichTextField
+
 
 # Create your models here.
 
+
+# store response for each question (Based on question type), whether, it is mcq, database, programming etc. 
+class ResponseSheet(models.Model):
+    profile = models.ForeignKey(Profile, on_delete=models.CASCADE, null=True)
+    exam = models.ForeignKey(Exam, on_delete=models.CASCADE)
+    question = models.ForeignKey(Question, on_delete=models.CASCADE)
+    response = RichTextField(blank=True, null=True)
+
+
+    def __str__(self):
+        return f'{self.pk} | {self.profile.user.username}'
+
+
+# Will be created based on Response sheet
 class AnswerSheet(models.Model):
     profile = models.ForeignKey(Profile, on_delete=models.CASCADE, null=True)
     exam = models.OneToOneField(Exam, on_delete=models.CASCADE)
@@ -14,8 +30,9 @@ class AnswerSheet(models.Model):
     marks_obtained = models.IntegerField(blank=True, null=True, default=0)
 
     def __str__(self):
-        return f'{self.profile.user.username}'
+        return f'{self.pk} | {self.profile.user.username}'
 
+#  Will be calculated based on Answersheet
 class Result(models.Model):
     is_qualified = models.BooleanField(default=False)
     profile = models.ForeignKey(Profile, on_delete=models.CASCADE, null=True)
@@ -25,4 +42,4 @@ class Result(models.Model):
     note = models.CharField(max_length=100, blank=True)
 
     def __str__(self):
-        return f'{self.profile.user.username}'
+        return f'{self.pk} | {self.profile.user.username}'
