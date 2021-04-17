@@ -7,6 +7,7 @@ from django.shortcuts import render, redirect
 import datetime
 from django.utils import timezone
 from question.models import Question
+from user.models import Profile
 
 
 # Section to sort questions based on particular section
@@ -63,3 +64,16 @@ class Exam(models.Model):
         return f'{self.pk} | {self.title}'
 
 
+# After adding profiles to ExamSubscriber,
+# particular exam will be available to users
+class ExamSubscriber(models.Model):
+    exam = models.OneToOneField(Exam, on_delete=models.CASCADE, null=True)
+    profile = models.ManyToManyField(Profile)
+
+
+# last added exam will be in live mode
+# control which exam to conduct
+# Exam id will be generated based on this data.
+class SetExam(models.Model):
+    exam = models.OneToOneField(Exam, on_delete=models.CASCADE, null=True)
+    

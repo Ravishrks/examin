@@ -7,7 +7,7 @@ from django.http import HttpResponse
 
 from exam.models import QuestionSection, QuestionSet
 from question.models import Question
-
+from exam.models import Exam
 
 
 
@@ -16,7 +16,7 @@ def instructions(request):
 
 def question(request):
 
-    question = Question.objects.all().first()
+    exam = Exam.objects.all()[2]
 
     context = {
         "question":question,
