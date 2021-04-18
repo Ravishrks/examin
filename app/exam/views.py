@@ -45,7 +45,7 @@ def question(request, pk):
             if j.pk == pk:
                 question_index = index
 
-    first_question_index = question[0].pk
+    first_question_index = questions[0].pk
 
 
     
@@ -56,12 +56,33 @@ def question(request, pk):
         "my_question":my_question,
         "current_question_index":question_index,
         "first_question_index":first_question_index,
+        "index":index,
     }
 
     return render(request, 'exam/question.html', context)
 
 def all_questions(request):
-    return render(request, 'exam/all-questions.html')
+
+    current_exam = SetExam.objects.last().exam
+    question_sets = current_exam.question_set.all()[0]
+    question_sections = question_sets.question_section.all() 
+
+    # Calculate no of questions and keep on eye on current
+    # question index
+
+    questions = []
+
+    for i in question_sections:
+        for j in i.question.all():
+            questions += [j]
+            
+
+    context = {
+        "questions":questions,
+        "page_all_question":"page_all_question",
+
+    }
+    return render(request, 'exam/all-questions.html', context)
 
 def section(request):
     return render(request, 'exam/section.html')
