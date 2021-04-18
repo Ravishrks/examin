@@ -29,7 +29,7 @@ class QuestionSection(models.Model):
 
     def __str__(self):
         return f'{self.pk} | {self.title}'
-
+ 
 
 
 class QuestionSet(models.Model): 
@@ -76,4 +76,14 @@ class ExamSubscriber(models.Model):
 # Exam id will be generated based on this data.
 class SetExam(models.Model):
     exam = models.OneToOneField(Exam, on_delete=models.CASCADE, null=True)
-    
+
+
+    # Handle status of exam for a particular exam, user
+class ExamStatus(models.Model):
+    exam = models.OneToOneField(Exam, on_delete=models.CASCADE, null=True)
+    profile = models.OneToOneField(Profile, on_delete=models.CASCADE, null=True)
+    is_submitted = models.BooleanField(default=False)
+    total_questions = models.IntegerField(blank=True, null=True, default=0)
+    completed_questions = models.IntegerField(blank=True, null=True, default=0)
+    time_left = models.IntegerField(blank=True, null=True, default=0)
+    saved_response_question = models.ManyToManyField(Question)

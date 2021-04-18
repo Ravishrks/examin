@@ -356,23 +356,27 @@ button {
     color: gray; }
 
 .choices-area {
-  margin-top: 2rem; }
-  .choices-area__content__editor-save > button {
-    font-size: 1.6rem;
-    padding: 0.4rem 1rem 0.4rem 1rem;
-    margin-top: 1rem;
-    border: 1px solid #65d5dd;
-    color: white;
-    background-color: #00c3ff; }
-  .choices-area__content__editor-info {
-    font-size: 1.6rem;
-    margin: 0rem 0rem 1rem 0rem;
-    color: gray;
-    padding: 1rem;
-    background-color: white;
-    width: fit-content;
-    display: flex;
-    justify-content: space-around; }
+  margin-top: 2rem;
+  height: auto; }
+  .choices-area__content {
+    padding-bottom: 2rem;
+    height: 72vh; }
+    .choices-area__content__editor-save > button {
+      font-size: 1.6rem;
+      padding: 0.4rem 1rem 0.4rem 1rem;
+      margin-top: 1rem;
+      border: 1px solid #65d5dd;
+      color: white;
+      background-color: #00c3ff; }
+    .choices-area__content__editor-info {
+      font-size: 1.6rem;
+      margin: 0rem 0rem 1rem 0rem;
+      color: gray;
+      padding: 1rem;
+      background-color: white;
+      width: fit-content;
+      display: flex;
+      justify-content: space-around; }
 
 .CodeMirror-code {
   font-size: 1.6rem;

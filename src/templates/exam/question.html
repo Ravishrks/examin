@@ -23,7 +23,7 @@
     
     </div>
  
-      <a href="{% url 'exam:question' %}" class="mr-4 inline-block text-2xl px-4 py-2 leading-none border rounded text-green border-green hover:border-transparent hover:text-teal-500 hover:bg-white mt-4 lg:mt-0 text-grey-600">Submit test</a>
+      <a href="#" class="mr-4 inline-block text-2xl px-4 py-2 leading-none border rounded text-green border-green hover:border-transparent hover:text-teal-500 hover:bg-white mt-4 lg:mt-0 text-grey-600">Submit test</a>
     </div>
   </div>
 </nav>
@@ -39,23 +39,15 @@
     <div class="question-index">
         <a href="{% url 'exam:instructions' %}">Instructions</a>
         <a href="{% url 'exam:all-question' %}">All</a>
-        <a href="">1</a>
-        <a href="">2</a>
-        <a href="">3</a>
-        <a href="">4</a>
-        <a href="">5</a>
-        <a href="">6</a>
-        <a href="">7</a>
-        <a href="">8</a>
-        <a href="">9</a>
-        <a href="">10</a>
-        <a href="">11</a>
-        <a href="">12</a>
-        <a href="">13</a>
-        <a href="">14</a>
-        <a href="">15</a>
-        <a href="">16</a>
-      
+
+       {% for each in questions %}
+        
+  <a href="{% url 'exam:question' each.pk %}">{{forloop.counter}}</a>
+        {% endfor%}
+        
+        
+
+   
  
         
     </div>
@@ -77,9 +69,9 @@
                 <div class="question-area">
                     <div class="question-area__section-tag">SECTION: A </div>
                     <div class="question-area__content">
-                        <div class="question-area__content__header"><span>1. {{question.title}}</span></div><hr><br>
+                        <div class="question-area__content__header"><span> {{my_question.title}}</span></div><hr><br>
                         <div class="question-area__content__details">
-                          {{question.content | safe }}
+                          {{my_question.content | safe }}
                         </div>
                     </div>
                 </div>
