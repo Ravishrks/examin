@@ -1,6 +1,6 @@
 {% extends "user/base.html" %}
- 
-{% block title %} Instructions {% endblock title%}
+
+{% block title %} Questions {% endblock title%}
 {% load static %}
 
 {%block nav%}
@@ -9,26 +9,36 @@
 
 <div class="container">
 
-    <nav class="flex items-center justify-between flex-wrap bg-white p-6">
-  <div class="flex items-center flex-shrink-0  mr-6">
-    <span class="font-semibold text-5xl tracking-tight "><a href="{% url 'user:dashboard' %}">Exambit</a></span>
-  </div>
-  <div class="block lg:hidden">
-    <button class="flex items-center px-3 py-2 border rounded text-teal-200 border-teal-400 hover:text-white hover:border-white">
-      <svg class="fill-current h-3 w-3" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><title>Menu</title><path d="M0 3h20v2H0V3zm0 6h20v2H0V9zm0 6h20v2H0v-2z"/></svg>
-    </button>
-  </div>
-  <div class="w-full block flex-grow lg:flex lg:items-center lg:w-auto ">
-    <div class="text-2xl lg:flex-grow">
-    
+  <nav class="flex items-center justify-between flex-wrap bg-white p-6">
+    <div class="flex items-center flex-shrink-0  mr-6">
+      <span class="font-semibold text-5xl tracking-tight "><a href="{% url 'user:dashboard' %}">Exambit</a></span>
     </div>
- 
-      <a href="#" class="mr-4 inline-block text-2xl px-4 py-2 leading-none border rounded text-green border-green hover:border-transparent hover:text-teal-500 hover:bg-white mt-4 lg:mt-0 text-grey-600">Submit test</a>
+    <div class="block lg:hidden">
+      <button
+        class="flex items-center px-3 py-2 border rounded text-teal-200 border-teal-400 hover:text-white hover:border-white">
+        <svg class="fill-current h-3 w-3" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+          <title>Menu</title>
+          <path d="M0 3h20v2H0V3zm0 6h20v2H0V9zm0 6h20v2H0v-2z" />
+        </svg>
+      </button>
     </div>
-  </div>
+    <div class="w-full block flex-grow lg:flex lg:items-center lg:w-auto ">
+      <div class="text-2xl lg:flex-grow">
+
+      </div>
+
+      <a href="#" id="time"
+        class="mr-4  inline-block text-2xl px-4 py-2 leading-none border rounded text-green border-green hover:border-transparent hover:text-teal-500 hover:bg-white mt-4 lg:mt-0 text-grey-600">
+        
+</a>
+      <a href="#"
+        class="mr-4 bg-green-500 text-white inline-block text-2xl px-4 py-2 leading-none border rounded text-green border-green hover:border-transparent hover:text-teal-500 hover:bg-white mt-4 lg:mt-0 text-grey-600">Submit
+        test</a>
+    </div>
+</div>
 </nav>
 
-</div> 
+</div>
 
 {%endblock nav%}
 
@@ -36,21 +46,24 @@
 {% block header %}
 
 <div class="container">
-    <div class="question-index">
-        <a href="{% url 'exam:instructions' %}">Instructions</a>
-        <a href="{% url 'exam:all-question' %}">All</a>
+  <div class="question-index">
+    <a class="" href="{% url 'exam:instructions' %}">Instructions</a>
+    <a class="
+    {% if page_all_question%}
+    active
+    {%endif%}
+    " href="{% url 'exam:all-question' %}">All</a>
 
-       {% for each in questions %}
-        
-  <a href="{% url 'exam:question' each.pk %}">{{forloop.counter}}</a>
-        {% endfor%}
-        
-        
+    {% for each in questions %}
 
-   
- 
-        
-    </div>
+    <a class="
+    {% if current_question_index == forloop.counter %}
+    bg-yellow-500 active
+    {%endif%}
+    
+    " href="{% url 'exam:question' each.pk %}">{{forloop.counter}}</a>
+    {% endfor%}
+  </div>
 </div>
 
 {% endblock header%}
@@ -58,47 +71,56 @@
 {% block container%}
 
 <div class="container">
- 
 
 
-
-
-    <div class="question-frame">
-        <div class="question-frame__left">
-            {% block question-frame__left%}
-                <div class="question-area">
-                    <div class="question-area__section-tag">SECTION: A </div>
-                    <div class="question-area__content">
-                        <div class="question-area__content__header"><span> {{my_question.title}}</span></div><hr><br>
-                        <div class="question-area__content__details">
-                          {{my_question.content | safe }}
-                        </div>
-                    </div>
-                </div>
-
-            {% endblock question-frame__left%}
+  <div class="question-frame">
+    <div class="question-frame__left">
+      {% block question-frame__left%}
+      <div class="question-area">
+        <div class="question-area__section-tag">SECTION: A </div>
+        <div class="question-area__content">
+          <div class="question-area__content__header"><span> {{my_question.title}}</span></div>
+          <hr><br>
+          <div class="question-area__content__details">
+            {{my_question.content | safe }}
+          </div>
         </div>
-        <div class="question-frame__right">
-            {% block question-frame__right%}
+      </div>
 
-            <div class="choices-area">
-              <div class="choices-area__content">
-                  <div class="choices-area__content__editor-info">
-                    <span>Language: <b>JavaScript</b></span>
-                  </div>
-                  <div class="choices-area__content__editor" id="editor"></div>
-                  <div class="choices-area__content__editor-save">
-                    <button>Save response</button>
-                  </div>
-              </div>
+      {% endblock question-frame__left%}
+    </div>
+    <div class="question-frame__right">
+      {% block question-frame__right%}
 
+      <div class="choices-area">
+        <div class="choices-area__content">
+          <div class="choices-area__content__editor-info">
+            <span>Language: <b>JavaScript</b></span>
+          </div>
+         
+            <div name="editor" class="choices-area__content__editor" id="editor"></div>
+            
+            <div class="choices-area__content__editor-save">
+              <button id="save-programming-response-button">Save response</button>
             </div>
-
-            {% endblock question-frame__right%}
+          
+          
         </div>
-    </div>  
+
+      </div>
+
+      {% endblock question-frame__right%}
+    </div>
+  </div>
+</div>
+
+<div style="visibility: hidden;" class="hidden_data">
+  <span id="exam_id">{{exam_id}}</span>
+  <span id="question_id">{{my_question.pk}}</span>
+  <span id="username">{{request.user.username}}</span>
+
 </div>
 
 
 
-{% endblock container%} 
+{% endblock container%}

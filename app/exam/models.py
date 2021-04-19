@@ -87,3 +87,5 @@ class ExamStatus(models.Model):
     completed_questions = models.IntegerField(blank=True, null=True, default=0)
     time_left = models.IntegerField(blank=True, null=True, default=0)
     saved_response_question = models.ManyToManyField(Question)
+    start_time = models.DateTimeField(blank=True, null=True)
+    end_time = models.DateTimeField(blank=True, null=True)

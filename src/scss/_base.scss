@@ -6,7 +6,6 @@ html {
 }
 
 
-
 h1 {
   font-size: 3.6rem;
 }
@@ -31,6 +30,11 @@ h1,h2,h3,h4,h4,h6 {
 
 a{
   color: $accent-dark;
+}
+
+.active{
+  color: white;
+  background-color: rgb(121, 255, 143);
 }
 
 p{

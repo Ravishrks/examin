@@ -1,6 +1,6 @@
 .question-frame{
     display: grid;
-    grid-template-columns: 4fr 8fr;
+    grid-template-columns: 4fr 7fr;
     gap: 3rem;
 
     &__left{
@@ -11,7 +11,7 @@
     &__right{
        display: flex;
        justify-content: center;
-    //    align-items: center;
+       align-items: center;
      
     //    height: 100vh;
        background-color: rgb(230, 250, 255);
@@ -51,22 +51,24 @@
 
     &>a{
         display: inline-block;
-        border: 1px solid rgb(207, 207, 207);
+        border-right: 1px solid rgb(233, 233, 233);
         padding: 1rem;
         font-size: 1.2rem;
-        color: gray;
+        color: rgb(0, 0, 0);
+        
         
 
     }
 }
 
 .choices-area{
-    margin-top: 2rem;
-    height: auto;
+    margin: 0rem 1rem 1rem 1rem;
+    
 
 
 
     &__content{
+        padding-top: 2rem;
         padding-bottom: 2rem;
         height: 72vh;
 
@@ -103,7 +105,7 @@
 .CodeMirror-code{
     // margin-top: 1rem;
     font-size: 1.6rem;
-    min-width: 720px;
+    min-width: 620px;
     // padding: 1rem;
     
     

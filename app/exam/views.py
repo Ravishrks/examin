@@ -4,6 +4,10 @@ from django.contrib.auth.models import User
 from django.contrib.auth.decorators import login_required
 from django.utils.decorators import method_decorator
 from django.http import HttpResponse
+from django.views.decorators.csrf import csrf_exempt
+from django.utils.decorators import method_decorator
+import json
+
 
 from exam.models import QuestionSection, QuestionSet
 from question.models import Question
@@ -22,6 +26,8 @@ def question(request, pk):
 
     # Get current exam, from setExam database
     current_exam = SetExam.objects.last().exam
+    exam_id = current_exam.pk
+    
 
     # Get question set, first element is default 
     question_sets = current_exam.question_set.all()[0]
@@ -34,6 +40,8 @@ def question(request, pk):
 
     questions = []
     index = 0
+
+    # to keep eye on navigation
     question_index = 0
 
     for i in question_sections:
@@ -45,6 +53,7 @@ def question(request, pk):
             if j.pk == pk:
                 question_index = index
 
+    # Help to setup 1st question from instruction page
     first_question_index = questions[0].pk
 
 
@@ -57,9 +66,32 @@ def question(request, pk):
         "current_question_index":question_index,
         "first_question_index":first_question_index,
         "index":index,
+        "exam_id":exam_id,
+
     }
 
     return render(request, 'exam/question.html', context)
+
+@method_decorator(csrf_exempt, name='dispatch')
+class SaveResponse(View):
+
+    def get(self, request):        
+        return HttpResponse("Nothing...")
+
+    @csrf_exempt
+    def post(self, request):
+        data = json.loads(request.body.decode('utf-8'))
+
+        
+        print(data['firstName'])
+        print("Hi, from post section")
+
+        return HttpResponse("Answer saved")
+
+
+ 
+
+# save response to database
 
 def all_questions(request):
 
