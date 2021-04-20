@@ -50,7 +50,7 @@
     <a class="" href="{% url 'exam:instructions' %}">Instructions</a>
     <a class="
     {% if page_all_question%}
-    active
+    active 
     {%endif%}
     " href="{% url 'exam:all-question' %}">All</a>
 
@@ -58,7 +58,7 @@
 
     <a class="
     {% if current_question_index == forloop.counter %}
-    bg-yellow-500 active
+    bg-yellow-500 
     {%endif%}
     
     " href="{% url 'exam:question' each.pk %}">{{forloop.counter}}</a>

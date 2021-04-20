@@ -4,10 +4,31 @@ from django.contrib.auth.models import User
 from django.contrib.auth.decorators import login_required
 from django.utils.decorators import method_decorator
 from django.http import HttpResponse
+from result.models import ResponseSheet
+import os
 
 
 
 
 def result(request):
     return render(request, 'user/dashboard.html')
+
+
+def checkResponseSheet(request, exam_id):
+
+    my_response_sheet = ResponseSheet.objects.filter(exam__pk = exam_id)
+    print(my_response_sheet)
+
+    # testing with one entry
+
+    sheet = my_response_sheet.first()
+    print(sheet)
+
+    cwd = os.getcwd()
+    print(cwd)
+
+    with open('result/workfile.txt', 'w') as f:
+        print("inside file")
+
+    return HttpResponse("Checked!")
 
