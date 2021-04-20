@@ -11,7 +11,9 @@ import json
 
 from exam.models import QuestionSection, QuestionSet
 from question.models import Question
-from exam.models import Exam, SetExam
+from exam.models import Exam, SetExam, ExamStatus
+from result.models import ResponseSheet
+from user.models import Profile
 
 
 
@@ -82,10 +84,51 @@ class SaveResponse(View):
     def post(self, request):
         data = json.loads(request.body.decode('utf-8'))
 
-        
-        print(data['firstName'])
-        print("Hi, from post section")
+        my_data = {
+            'username':data['username'],
+            'exam_pk':data['examId'],
+            'question_pk':data['questionId'],
+            'response_data':data['editorContent']
+        }
 
+        # Getting particular question to associate response entry
+        question = Question.objects.get(pk=my_data['question_pk'])
+        print(question)
+
+        # Getting exam status field to maintain status
+        exam_status = ExamStatus.objects.filter(exam__pk = my_data['exam_pk'])
+        exam_status = exam_status.get(profile__user__username = my_data['username'])
+        print(exam_status)
+
+        # Getting Response sheet to save response
+        response_sheet = ResponseSheet.objects.filter(exam__pk = my_data['exam_pk'])
+        response_sheet = response_sheet.filter(profile__user__username = my_data['username'])
+
+        # Getting common database elements, used during object creation
+        my_profile = Profile.objects.get(user__username = my_data['username'])
+        my_exam = Exam.objects.get(pk = my_data['exam_pk'])
+        my_question = Question.objects.get(pk = my_data['question_pk'])
+
+        
+
+        try:
+
+            # Update respone sheet, if entry is already available
+            response_sheet = response_sheet.get(question__pk = my_data['question_pk'])
+            response_sheet.response = my_data['response_data']
+            response_sheet.save()
+
+
+        except ResponseSheet.DoesNotExist:
+
+            # Create response sheet for a particular question
+            # Newline (\n) is preserved in database, checked
+            rs = ResponseSheet(profile = my_profile, exam = my_exam, question = my_question, response = my_data['response_data'])
+            rs.save()
+
+        # note: create ExamStutus entry 
+
+        
         return HttpResponse("Answer saved")
 
 

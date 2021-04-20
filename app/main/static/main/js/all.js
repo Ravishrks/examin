@@ -10783,6 +10783,9 @@ let myCodeMirror = CodeMirror(myEditorJs, {
 });
 
 
+
+
+
 // Handle save response
 
 let saveProgrammeResponseBtn = document.querySelector("#save-programming-response-button");
@@ -10793,8 +10796,27 @@ if (saveProgrammeResponseBtn) {
     function saveProgrammeResponse() {
         let programmeResponseValue = myCodeMirror.getValue();
 
-        // save data in background
-        console.log(programmeResponseValue);
+        // get meta data about questions and users
+        let currentUser = document.querySelector("#username");
+        let currentExamId = document.querySelector("#exam_id");
+        let currentQuestionId = document.querySelector("#question_id");
+
+        currentUser = currentUser.innerHTML;
+        currentExamId = currentExamId.innerHTML;
+        currentQuestionId = currentQuestionId.innerHTML;
+
+        let url = "/exam/response/";
+
+        axios({
+            method: 'post',
+            url: url,
+            data: {
+                username: currentUser,
+                examId: currentExamId,
+                questionId:currentQuestionId,
+                editorContent:programmeResponseValue,
+            }
+        });
 
 
     }
@@ -10832,24 +10854,4 @@ window.onload = function () {
 // testing zone
 
 
-// get meta data about questions and users
-let currentUser = document.querySelector("#username");
-let currentExamId = document.querySelector("#exam_id");
-let currentQuestionId = document.querySelector("#question_id");
 
-currentUser = currentUser.innerHTML;
-currentExamId = currentExamId.innerHTML;
-currentQuestionId = currentQuestionId.innerHTML;
-
-let url = "http://localhost:3000/exam/response/";
-let reqData = { method: 'POST', body: '{"foo": "bar"}' };
-
-
-axios({
-    method: 'post',
-    url: url,
-    data: {
-      firstName: 'Fred',
-      lastName: 'Flintstone'
-    }
-  });

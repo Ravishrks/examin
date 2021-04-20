@@ -25,6 +25,10 @@ a {
   color: white;
   background-color: #79ff8f; }
 
+.solved {
+  color: white;
+  background-color: #79ff8f; }
+
 p {
   line-height: 2.4rem;
   font-size: 1.8rem;

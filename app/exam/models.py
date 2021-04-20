@@ -80,12 +80,19 @@ class SetExam(models.Model):
 
     # Handle status of exam for a particular exam, user
 class ExamStatus(models.Model):
-    exam = models.OneToOneField(Exam, on_delete=models.CASCADE, null=True)
+
+    # this entry will be cleared once exam is complited
+
+    exam = models.ForeignKey(Exam, on_delete=models.CASCADE, null=True)
     profile = models.OneToOneField(Profile, on_delete=models.CASCADE, null=True)
     is_submitted = models.BooleanField(default=False)
     total_questions = models.IntegerField(blank=True, null=True, default=0)
-    completed_questions = models.IntegerField(blank=True, null=True, default=0)
+    completed_questions = models.ManyToManyField(Question)
+
+    # remove time_left entry
     time_left = models.IntegerField(blank=True, null=True, default=0)
-    saved_response_question = models.ManyToManyField(Question)
     start_time = models.DateTimeField(blank=True, null=True)
     end_time = models.DateTimeField(blank=True, null=True)
+
+    def __str__(self):
+        return f'{self.pk} | {self.profile}'
