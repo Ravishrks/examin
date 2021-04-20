@@ -6,6 +6,8 @@ from django.utils.decorators import method_decorator
 from django.http import HttpResponse
 from result.models import ResponseSheet
 import os
+import subprocess
+
 
 
 
@@ -22,13 +24,26 @@ def checkResponseSheet(request, exam_id):
     # testing with one entry
 
     sheet = my_response_sheet.first()
-    print(sheet)
+    my_programme = sheet.response
+    # print(sheet.pk)
 
     cwd = os.getcwd()
-    print(cwd)
+    
 
-    with open('result/workfile.txt', 'w') as f:
+    # Generate unique file name, answersheet pk, exam id, profile id, question id and language extension
+
+    with open('result/programme-files/program/workfile.js', 'w') as f:
         print("inside file")
+        f.write(my_programme)
+
+    # subprocess.run(["node", "result/programme-files/program/workfile.js", ">", "result/programme-files/output/workfile.txt"])
+    subprocess.run(["./result/programme-files/program/test.sh"])
+
+
+    # outfile file
+    # with open('result/programme-files/program/workfile.js', 'w') as f:
+    #     print("inside file")
+    #     f.write(my_programme)
 
     return HttpResponse("Checked!")
 

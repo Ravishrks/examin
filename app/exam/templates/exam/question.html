@@ -27,10 +27,14 @@
 
       </div>
 
+      <a href="#" id="fullScreen"
+        class="mr-4  inline-block text-2xl px-4 py-2 leading-none border rounded text-green border-green hover:border-transparent hover:text-teal-500 hover:bg-white mt-4 lg:mt-0 text-grey-600">
+      Full Screen View
+      </a>
       <a href="#" id="time"
         class="mr-4  inline-block text-2xl px-4 py-2 leading-none border rounded text-green border-green hover:border-transparent hover:text-teal-500 hover:bg-white mt-4 lg:mt-0 text-grey-600">
-        
-</a>
+
+      </a>
       <a href="#"
         class="mr-4 bg-green-500 text-white inline-block text-2xl px-4 py-2 leading-none border rounded text-green border-green hover:border-transparent hover:text-teal-500 hover:bg-white mt-4 lg:mt-0 text-grey-600">Submit
         test</a>
@@ -97,14 +101,14 @@
           <div class="choices-area__content__editor-info">
             <span>Language: <b>JavaScript</b></span>
           </div>
-         
-            <div name="editor" class="choices-area__content__editor" id="editor"></div>
-            
-            <div class="choices-area__content__editor-save">
-              <button id="save-programming-response-button">Save response</button>
-            </div>
-          
-          
+
+          <div name="editor" class="choices-area__content__editor" id="editor"></div>
+
+          <div class="choices-area__content__editor-save">
+            <button id="save-programming-response-button">Save response</button>
+          </div>
+
+
         </div>
 
       </div>
@@ -117,6 +121,7 @@
 <div style="visibility: hidden;" class="hidden_data">
   <span id="exam_id">{{exam_id}}</span>
   <span id="question_id">{{my_question.pk}}</span>
+  <span id="question_id_screen">{{my_question.pk}}</span>
   <span id="username">{{request.user.username}}</span>
 
 </div>
