@@ -66,16 +66,10 @@
                     <span>Instructions</span>
                 </div>
                 <div class="instructions-content__instructions">
-                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ex tempore quia, exercitationem nemo natus delectus laborum quibusdam provident error? Architecto.</p><br>
-                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Suscipit assumenda aut quod quibusdam itaque corporis laborum, eius porro dignissimos earum consectetur ex ea id totam modi libero dolores.</p>
-                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ex tempore quia, exercitationem nemo natus delectus laborum quibusdam provident error? Architecto.</p><br>
-                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Suscipit assumenda aut quod quibusdam itaque corporis laborum, eius porro dignissimos earum consectetur ex ea id totam modi libero dolores.</p>
-                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ex tempore quia, exercitationem nemo natus delectus laborum quibusdam provident error? Architecto.</p><br>
-                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Suscipit assumenda aut quod quibusdam itaque corporis laborum, eius porro dignissimos earum consectetur ex ea id totam modi libero dolores.</p>
-                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ex tempore quia, exercitationem nemo natus delectus laborum quibusdam provident error? Architecto.</p><br>
+                    {{exam.instructions | safe}}
                 </div>
                 <div class="instructions-content__start-test-btn">
-                    <button><a href="{% url 'exam:question' 1%}">Start now</a></button>
+                    <button><a href="{% url 'exam:question' first_question_index%}">Start now</a></button>
                 </div>
 
             </div>

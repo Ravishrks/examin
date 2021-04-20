@@ -70,12 +70,21 @@ class ExamSubscriber(models.Model):
     exam = models.OneToOneField(Exam, on_delete=models.CASCADE, null=True)
     profile = models.ManyToManyField(Profile)
 
+    def __str__(self):
+        return f'{self.pk} | exam-id :  {self.exam}'
+
 
 # last added exam will be in live mode
 # control which exam to conduct
 # Exam id will be generated based on this data.
+# one user can only give one exam at a time
+# so in live exam, there is not two examSubscriber containing same profile
 class SetExam(models.Model):
     exam = models.OneToOneField(Exam, on_delete=models.CASCADE, null=True)
+    exam_subscriber = models.OneToOneField(ExamSubscriber, on_delete=models.CASCADE, null=True)
+
+    def __str__(self):
+        return f'{self.pk} | {self.exam}'
 
 
     # Handle status of exam for a particular exam, user

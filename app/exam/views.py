@@ -18,7 +18,36 @@ from user.models import Profile
 
 
 def instructions(request):
-    return render(request, 'exam/instructions.html')
+    current_exam = SetExam.objects.get(exam_subscriber__profile__user = request.user).exam
+    exam_id = current_exam.pk
+
+    # Getting first question id
+    question_sets = current_exam.question_set.all()[0]
+    question_sections = question_sets.question_section.all()
+
+    questions = []
+
+    # to keep eye on navigation
+    question_index = 0
+
+    for i in question_sections:
+        for j in i.question.all():
+            questions += [j]
+
+
+
+    # Help to setup 1st question from instruction page
+    first_question_index = questions[0].pk
+
+    context = {
+        "first_question_index":first_question_index,
+        "exam":current_exam,
+    }
+
+
+
+
+    return render(request, 'exam/instructions.html', context)
 
 def question(request, pk):
 
@@ -27,7 +56,7 @@ def question(request, pk):
 
 
     # Get current exam, from setExam database
-    current_exam = SetExam.objects.last().exam
+    current_exam = SetExam.objects.get(exam_subscriber__profile__user = request.user).exam
     exam_id = current_exam.pk
     
 
@@ -36,9 +65,6 @@ def question(request, pk):
 
     # Get question section to have questions inside it
     question_sections = question_sets.question_section.all() 
-
-    # Calculate no of questions and keep on eye on current
-    # question index
 
     questions = []
     index = 0
