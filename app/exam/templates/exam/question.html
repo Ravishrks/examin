@@ -62,7 +62,7 @@
 
     <a class="
     {% if current_question_index == forloop.counter %}
-    bg-yellow-500 
+    bg-yellow-500 active
     {%endif%}
     
     " href="{% url 'exam:question' each.pk %}">{{forloop.counter}}</a>
@@ -99,7 +99,27 @@
       <div class="choices-area">
         <div class="choices-area__content">
           <div class="choices-area__content__editor-info">
-            <span>Language: <b>JavaScript</b></span>
+            <span>Language:
+              
+              <!-- <b>JavaScript</b></span> -->
+
+              <span x-data="{ open: false }">
+                <button @click="open = true">Javascript </button>
+                
+                <ul
+                    x-show="open"
+                    @click.away="open = false"
+                >
+                    <a href=""><li>Python</li></a>
+                    <a href=""><li>Java</li></a>
+                    <a href=""><li>C</li></a>
+                    <a href=""><li>C++</li></a>
+                    <a href=""><li>PHP</li></a>
+                    <a href=""><li>Go Lang</li></a>
+                </ul>
+              </span>
+
+
           </div>
 
           <div name="editor" class="choices-area__content__editor" id="editor"></div>
@@ -123,6 +143,7 @@
   <span id="question_id">{{my_question.pk}}</span>
   <span id="question_id_screen">{{my_question.pk}}</span>
   <span id="username">{{request.user.username}}</span>
+  <span id="languageType">{{request.user.username}}</span>
 
 </div>
 

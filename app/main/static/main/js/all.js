@@ -10831,6 +10831,7 @@ if (saveProgrammeResponseBtn) {
     saveProgrammeResponseBtn.addEventListener("click", saveProgrammeResponse);
 
     function saveProgrammeResponse() {
+        alert("Response saved")
         let programmeResponseValue = myCodeMirror.getValue();
 
         // get meta data about questions and users
@@ -10854,6 +10855,8 @@ if (saveProgrammeResponseBtn) {
                 editorContent:programmeResponseValue,
             }
         });
+
+        
 
 
     }

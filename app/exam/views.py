@@ -122,9 +122,9 @@ class SaveResponse(View):
         print(question)
 
         # Getting exam status field to maintain status
-        exam_status = ExamStatus.objects.filter(exam__pk = my_data['exam_pk'])
-        exam_status = exam_status.get(profile__user__username = my_data['username'])
-        print(exam_status)
+        # exam_status = ExamStatus.objects.filter(exam__pk = my_data['exam_pk'])
+        # exam_status = exam_status.get(profile__user__username = my_data['username'])
+        # print(exam_status)
 
         # Getting Response sheet to save response
         response_sheet = ResponseSheet.objects.filter(exam__pk = my_data['exam_pk'])

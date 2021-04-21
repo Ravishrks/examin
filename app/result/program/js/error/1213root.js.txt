@@ -1,10 +1,10 @@
-/workspace/app/result/programme-files/program/workfile.js:3
-t
+/workspace/app/result/program/js/files/1213root.js:2
+)
 ^
 
-ReferenceError: t is not defined
-    at Object.<anonymous> (/workspace/app/result/programme-files/program/workfile.js:3:1)
-    at Module._compile (internal/modules/cjs/loader.js:1200:30)
+SyntaxError: Unexpected token ')'
+    at wrapSafe (internal/modules/cjs/loader.js:1116:16)
+    at Module._compile (internal/modules/cjs/loader.js:1164:27)
     at Object.Module._extensions..js (internal/modules/cjs/loader.js:1220:10)
     at Module.load (internal/modules/cjs/loader.js:1049:32)
     at Function.Module._load (internal/modules/cjs/loader.js:937:14)

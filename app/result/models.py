@@ -10,10 +10,23 @@ from ckeditor.fields import RichTextField
 
 # store response for each question (Based on question type), whether, it is mcq, database, programming etc. 
 class ResponseSheet(models.Model):
+
+    LANGUAGE = (
+        ('.js', 'javascript'),
+        ('.c', 'c'),
+        ('.cpp', 'c++'),
+        ('.py', 'python'),
+        ('.php', 'php'),
+        ('.java', 'java'),
+    )
+
     profile = models.ForeignKey(Profile, on_delete=models.CASCADE, null=True)
     exam = models.ForeignKey(Exam, on_delete=models.CASCADE)
     question = models.ForeignKey(Question, on_delete=models.CASCADE)
-    response = RichTextField(blank=True, null=True)
+    response = RichTextField(blank=True, null=True, editable=False)
+    language_type = models.CharField(max_length=30, choices=LANGUAGE, blank=True, null=True)
+    output = RichTextField(blank=True, null=True, )
+    error = RichTextField(blank=True, null=True, )
 
 
     def __str__(self):
